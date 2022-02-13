@@ -37,6 +37,12 @@ class MessageDetailCubit extends Cubit<MessageDetailState> with Disposable {
       emit(state.copyWith(
           messages: <MessageDetailEntity>{message, ...(state.messages ?? [])}
               .toList()));
-    });
+    }).subscribe(this);
+  }
+
+  @override
+  Future<void> close() async {
+    await dataSource.dispose();
+    return super.close();
   }
 }

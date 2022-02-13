@@ -19,4 +19,10 @@ class InboxCubit extends Cubit<InboxState> with Disposable {
       emit(state.copyWith(messages: messages));
     }).subscribe(this);
   }
+
+  @override
+  Future<void> close() async {
+    await dataSource.dispose();
+    return super.close();
+  }
 }
