@@ -7,6 +7,7 @@ abstract class MessageDetailDataSource {
   Stream<List<MessageDetailEntity>> detailsByChatId(String id);
   Stream<bool> sendMessage({required String message, required String id});
   Stream<MessageDetailEntity> messagesFromSocket(String id);
+  Future<void> dispose();
 }
 
 class MessageDetailDataSourceImp implements MessageDetailDataSource {
@@ -42,5 +43,10 @@ class MessageDetailDataSourceImp implements MessageDetailDataSource {
   Stream<bool> sendMessage(
       {required String message, required String id}) async* {
     yield* messageRepository.sendMessage(id: id, message: message);
+  }
+
+  @override
+  Future<void> dispose() async {
+    return messageRepository.dispose();
   }
 }
