@@ -8,7 +8,6 @@ class MessageDetailEntity with _$MessageDetailEntity {
     required String id,
     required String message,
     required String modifiedAt,
-   String? sender,
+    String? sender,
   }) = _MessageDetailDto;
-
 }

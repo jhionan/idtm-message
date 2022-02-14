@@ -1,5 +1,5 @@
-import 'package:idt_messager/feature/message_module/inbox/data/models/inbox_message_dto.dart';
-import 'package:idt_messager/feature/message_module/message_detail/data/models/message_detail_dto.dart';
+import '../inbox/data/models/inbox_message_dto.dart';
+import '../message_detail/data/models/message_detail_dto.dart';
 
 abstract class MessageRepository {
   Stream<List<InboxMessageDto>> fetchInboxMessages();

@@ -2,12 +2,13 @@ import 'dart:async';
 
 import 'package:bloc/bloc.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
-import 'package:idt_messager/core/utils/disposable.dart';
-import 'package:idt_messager/feature/message_module/message_detail/domain/entities/message_detail_entity.dart';
-import 'package:idt_messager/feature/message_module/message_detail/domain/message_detail_data_souce.dart';
 
-part 'message_detail_state.dart';
+import '../../../../../core/utils/disposable.dart';
+import '../../domain/entities/message_detail_entity.dart';
+import '../../domain/message_detail_data_souce.dart';
+
 part 'message_detail_cubit.freezed.dart';
+part 'message_detail_state.dart';
 
 class MessageDetailCubit extends Cubit<MessageDetailState> with Disposable {
   MessageDetailCubit(

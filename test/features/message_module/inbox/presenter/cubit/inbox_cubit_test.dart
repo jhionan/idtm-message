@@ -2,15 +2,13 @@ import 'dart:convert';
 import 'dart:io';
 
 import 'package:flutter_test/flutter_test.dart';
-import 'package:idt_messager/feature/message_module/data/message_repository_imp.dart';
 import 'package:idt_messager/feature/message_module/domain/message_repository.dart';
 import 'package:idt_messager/feature/message_module/inbox/data/models/inbox_message_dto.dart';
 import 'package:idt_messager/feature/message_module/inbox/domain/inbox_data_source.dart';
 import 'package:idt_messager/feature/message_module/inbox/presenter/cubit/inbox_cubit.dart';
-import 'package:idt_messager/feature/message_module/message_detail/data/models/message_detail_dto.dart';
-
-import 'package:mockito/mockito.dart';
 import 'package:mockito/annotations.dart';
+import 'package:mockito/mockito.dart';
+
 import 'inbox_cubit_test.mocks.dart';
 
 @GenerateMocks(<Type>[MessageRepository])
@@ -40,6 +38,4 @@ void main() {
         emits(isA<InboxState>().having(
             (p0) => p0.messages, 'messages fetched != null', isNotEmpty)));
   });
-
-  
 }

@@ -1,7 +1,7 @@
-import 'package:idt_messager/feature/message_module/domain/message_repository.dart';
-import 'package:idt_messager/feature/message_module/message_detail/data/models/message_detail_dto.dart';
-import 'package:idt_messager/feature/message_module/message_detail/domain/entities/message_detail_entity.dart';
-import 'package:idt_messager/core/utils/extensions.dart';
+import '../../../../core/utils/extensions.dart';
+import '../../domain/message_repository.dart';
+import '../data/models/message_detail_dto.dart';
+import 'entities/message_detail_entity.dart';
 
 abstract class MessageDetailDataSource {
   Stream<List<MessageDetailEntity>> detailsByChatId(String id);

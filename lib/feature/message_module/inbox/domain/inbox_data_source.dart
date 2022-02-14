@@ -1,6 +1,6 @@
-import 'package:idt_messager/feature/message_module/domain/message_repository.dart';
-import 'package:idt_messager/feature/message_module/inbox/data/models/inbox_message_dto.dart';
-import 'package:idt_messager/feature/message_module/inbox/domain/entities/inbox_message_entity.dart';
+import '../../domain/message_repository.dart';
+import '../data/models/inbox_message_dto.dart';
+import 'entities/inbox_message_entity.dart';
 
 abstract class InboxDataSource {
   Stream<List<InboxMessageEntity>> fetchInboxMessages();

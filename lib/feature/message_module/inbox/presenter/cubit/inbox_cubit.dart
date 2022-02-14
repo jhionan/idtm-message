@@ -1,11 +1,12 @@
 import 'package:bloc/bloc.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
-import 'package:idt_messager/core/utils/disposable.dart';
-import 'package:idt_messager/feature/message_module/inbox/domain/entities/inbox_message_entity.dart';
-import 'package:idt_messager/feature/message_module/inbox/domain/inbox_data_source.dart';
 
-part 'inbox_state.dart';
+import '../../../../../core/utils/disposable.dart';
+import '../../domain/entities/inbox_message_entity.dart';
+import '../../domain/inbox_data_source.dart';
+
 part 'inbox_cubit.freezed.dart';
+part 'inbox_state.dart';
 
 class InboxCubit extends Cubit<InboxState> with Disposable {
   InboxCubit({required this.dataSource}) : super(const InboxState()) {

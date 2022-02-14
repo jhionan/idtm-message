@@ -2,7 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_chat_bubble/bubble_type.dart';
 import 'package:flutter_chat_bubble/chat_bubble.dart';
 import 'package:flutter_chat_bubble/clippers/chat_bubble_clipper_2.dart';
-import 'package:idt_messager/feature/message_module/message_detail/domain/entities/message_detail_entity.dart';
+
+import '../../domain/entities/message_detail_entity.dart';
 
 class MessageDetailItem extends StatelessWidget {
   const MessageDetailItem({

@@ -18,8 +18,8 @@ class MessageRepositoryImp implements MessageRepository {
 
   static String? appPath;
 
-///Init is creating json files accessible path, so this fake repository can
-///override the json created.
+  ///Init is creating json files accessible path, so this fake repository can
+  ///override the json created.
   Future<void> _init() async {
     appPath = (await getApplicationSupportDirectory()).path;
     File file = File('$appPath/inbox.json');
@@ -103,13 +103,11 @@ class MessageRepositoryImp implements MessageRepository {
     File _newJson = File('$appPath/message_detail_$id.json');
     await _newJson.writeAsString(
         jsonEncode(_messagesDetailResponseHelper!..insert(0, newMessage)));
-    print(_messagesDetailResponseHelper);
   }
 
   Future<void> _generateResponse(String id) async {
-    await Future.delayed(Duration(seconds: 2), () {});
+    await Future.delayed(const Duration(seconds: 2), () {});
     String fake = Faker.instance.lorem.text();
-    print(fake);
     return await _createNewMessage(fake, id, isFake: true);
   }
 }

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:idt_messager/core/utils/extensions.dart';
+
+import '../../../../../core/utils/extensions.dart';
 
 class InboxItem extends StatelessWidget {
   const InboxItem(

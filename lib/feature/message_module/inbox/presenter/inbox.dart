@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:idt_messager/feature/message_module/inbox/domain/entities/inbox_message_entity.dart';
-import 'package:idt_messager/feature/message_module/inbox/presenter/widgets/inbox_item.dart';
-import 'package:idt_messager/feature/message_module/message_detail/presenter/cubit/message_detail_provider.dart';
 
+import '../../message_detail/presenter/cubit/message_detail_provider.dart';
+import '../domain/entities/inbox_message_entity.dart';
 import 'cubit/inbox_cubit.dart';
+import 'widgets/inbox_item.dart';
 
 class Inbox extends StatelessWidget {
   const Inbox({Key? key}) : super(key: key);

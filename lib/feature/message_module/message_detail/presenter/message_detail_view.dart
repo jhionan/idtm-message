@@ -1,15 +1,10 @@
-import 'dart:convert';
-
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:flutter_chat_bubble/bubble_type.dart';
-import 'package:flutter_chat_bubble/chat_bubble.dart';
-import 'package:flutter_chat_bubble/clippers/chat_bubble_clipper_1.dart';
-import 'package:flutter_chat_bubble/clippers/chat_bubble_clipper_2.dart';
-import 'package:idt_messager/feature/message_module/message_detail/domain/entities/message_detail_entity.dart';
-import 'package:idt_messager/feature/message_module/message_detail/presenter/cubit/message_detail_cubit.dart';
-import 'package:idt_messager/feature/message_module/message_detail/presenter/widgets/message_detail_item.dart';
-import 'package:idt_messager/feature/message_module/message_detail/presenter/widgets/submit_textfield.dart';
+
+import '../domain/entities/message_detail_entity.dart';
+import 'cubit/message_detail_cubit.dart';
+import 'widgets/message_detail_item.dart';
+import 'widgets/submit_textfield.dart';
 
 class MessageDetailView extends StatelessWidget {
   const MessageDetailView({Key? key}) : super(key: key);
@@ -32,7 +27,7 @@ class MessageDetailView extends StatelessWidget {
             children: [
               Expanded(
                 child: ListView.builder(
-                  reverse: true,
+                    reverse: true,
                     itemCount: state.messages!.length,
                     itemBuilder: (BuildContext context, int index) {
                       MessageDetailEntity message = state.messages![index];
@@ -41,7 +36,9 @@ class MessageDetailView extends StatelessWidget {
                       );
                     }),
               ),
-              SubmitTextfield(cubit: context.read(),)
+              SubmitTextfield(
+                cubit: context.read(),
+              )
             ],
           ),
         );

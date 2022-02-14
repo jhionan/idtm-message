@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:idt_messager/feature/message_module/message_detail/presenter/cubit/message_detail_cubit.dart';
+
+import '../cubit/message_detail_cubit.dart';
 
 class SubmitTextfield extends StatefulWidget {
   const SubmitTextfield({Key? key, required this.cubit}) : super(key: key);
@@ -58,6 +59,5 @@ class _SubmitTextfieldState extends State<SubmitTextfield> {
   void sumitMessage() {
     widget.cubit.submitMessage(_controller.text);
     _controller.clear();
-    
   }
 }

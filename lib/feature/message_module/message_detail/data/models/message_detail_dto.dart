@@ -9,7 +9,7 @@ class MessageDetailDto with _$MessageDetailDto {
     required String id,
     required String message,
     required int modifiedAt,
-   String? sender,
+    String? sender,
   }) = _MessageDetailDto;
 
   factory MessageDetailDto.fromJson(Map<String, dynamic> json) =>
