@@ -1,3 +1,5 @@
+import 'dart:async';
+
 import 'package:bloc/bloc.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:idt_messager/core/utils/disposable.dart';
@@ -11,20 +13,33 @@ class MessageDetailCubit extends Cubit<MessageDetailState> with Disposable {
   MessageDetailCubit(
       {required this.dataSource, required this.topic, required this.id})
       : super(MessageDetailState(topic: topic)) {
-    _fetchDetailedMessages();
-    _connectToSocket();
+    _init();
   }
   final String topic;
   final String id;
 
   final MessageDetailDataSource dataSource;
 
-  void _fetchDetailedMessages() {
-    dataSource.detailsByChatId(id).listen((event) {
-      emit(state.copyWith(messages: event));
-    }, onError: (Object error) {
-      //Todo
-    }).subscribe(this);
+  //init exist because is not possible to have async constructor.
+  Future<void> _init() async {
+    await _fetchDetailedMessages();
+    _connectToSocket();
+  }
+
+  Future<void> _fetchDetailedMessages() async {
+    return dataSource
+        .detailsByChatId(id)
+        .listen((event) {
+          emit(state.copyWith(
+              messages: <MessageDetailEntity>{
+            ...(state.messages ?? []),
+            ...event,
+          }.toList()));
+        }, onError: (Object error) {
+          //Todo
+        })
+        .subscribe(this)
+        .asFuture();
   }
 
   void submitMessage(String text) {
